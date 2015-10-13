@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import DataMigration
@@ -19,8 +20,8 @@ def copy_followit_records(name, model_class, orm):
     table_name = get_followit_table_name(name)
     cursor.execute('select user_id, object_id from %s' % table_name)
     rows = cursor.fetchall()
-    print 'Copying follow %s records' % name
-    print ('%d found... ' % len(rows)),
+    print('Copying follow %s records' % name)
+    print('%d found... ' % len(rows), end=' ')
     for row in rows:
         record_cls = orm['followit.FollowRecord']
         record_cls.objects.get_or_create(
@@ -28,7 +29,7 @@ def copy_followit_records(name, model_class, orm):
                                     user_id=row[0],
                                     object_id=row[1]
                                 )
-    print 'done'
+    print('done')
 
 
 class Migration(DataMigration):
