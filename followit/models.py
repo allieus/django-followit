@@ -1,9 +1,9 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
-from followit.compat import USER_MODEL_CLASS_NAME
 
 class FollowRecord(models.Model):
-    user = models.ForeignKey(USER_MODEL_CLASS_NAME)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     content_type = models.ForeignKey(
                             ContentType,
                             related_name='followed_record_contenttype'

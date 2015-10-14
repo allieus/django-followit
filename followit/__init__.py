@@ -22,7 +22,7 @@ The source code is available under BSD license.
 """
 # import django
 # from followit import utils
-from followit.compat import get_user_model
+from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 # from django.core.exceptions import ImproperlyConfigured
 
