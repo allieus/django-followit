@@ -34,7 +34,7 @@ from django.contrib.contenttypes.models import ContentType
 REGISTRY = {}
 
 def get_model_name(model):
-    return model._meta.module_name
+    return model._meta.model_name
 
 
 def get_follow_records(user, obj):
